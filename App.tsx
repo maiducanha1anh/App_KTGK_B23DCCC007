@@ -13,7 +13,7 @@ import { colors } from './src/theme/colors';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function App(): React.JSX.Element {
+export default function App() {
   return (
     <SafeAreaProvider>
       <BookProvider>
@@ -23,15 +23,14 @@ function App(): React.JSX.Element {
             initialRouteName="BookList"
             screenOptions={{
               headerStyle: { backgroundColor: colors.primary },
-              headerTintColor: colors.white,
-              headerTitleStyle: { fontWeight: '700', fontSize: 18 },
-              headerTitleAlign: 'center',
+              headerTintColor: colors.surface,
+              headerTitleStyle: { fontWeight: 'bold' },
             }}
           >
             <Stack.Screen
               name="BookList"
               component={BookListScreen}
-              options={{ headerShown: false }}
+              options={{ title: 'Quản Lý Thư Viện' }}
             />
             <Stack.Screen
               name="BookDetail"
@@ -49,5 +48,3 @@ function App(): React.JSX.Element {
     </SafeAreaProvider>
   );
 }
-
-export default App;
